@@ -1,0 +1,228 @@
+.container {
+  width: 92vw;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  h1 {
+    font-size: 32px;
+    font-weight: 700;
+  }
+  .swiper-btns {
+    display: flex;
+    .swiper-btn {
+      svg {
+        fill: #27272A;
+        transition: fill ease .3s;
+      }
+    }
+    .swiper-button-disabled {
+      svg {
+        fill: #E4E4E7;
+        transition: fill ease .3s;
+      }
+    }
+  }
+}
+
+.swiper {
+  &-container {
+    overflow: hidden;
+    padding: 1rem 0 4rem ;
+    border-bottom: 1px solid #BEC3C8;
+  }
+  &-slide {
+    padding: 10px;
+    transition: all ease .3s;
+    min-width: 220px;
+    &:hover {
+      transition: all ease .3s;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+    }
+  }
+}
+
+.product {
+  &-wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: inherit;
+  }
+  &-slide {
+    &__img {
+      position: relative;
+      padding: 16px;
+      border: 1px solid #EEEEEE;
+      border-radius: 8px;
+      margin-bottom: .5rem;
+      &__like {
+        position: absolute;
+        top: 0;
+        right: 0;
+        svg {
+          &:hover {
+            fill: $red;
+            transition: all ease .3s;
+            path {
+              stroke: $red;
+            }
+          }
+        }
+      }
+      &__item {
+        width: 100%;
+        object-fit: cover;
+      }
+      &__like.product-favorite {
+        svg {
+          fill: $red;
+          path {
+            stroke: $red;
+          }
+        }
+      }
+    }
+    &__present {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      img {
+        margin-bottom: 5px;
+      }
+      &-text {
+        background: $main;
+        color: $white;
+        font-size: 14px;
+        font-weight: 700;
+        border-radius: 0 4px;
+        padding: 5px;
+        span {
+          font-size: 12px;
+        }
+      }
+    }
+  }
+  &-info {
+    color: $description-text;
+    &__header {
+      display: flex;
+      justify-content: space-between;
+      &__price {
+        display: flex;
+        width: 60%;
+        max-width: 125px;
+        justify-content: space-between;
+        font-size: 18px;
+      }
+      &__note {
+        margin-bottom: .5rem;
+      }
+    }
+    &__title {
+      color: $price;
+    }
+    &__creator {
+      margin: 4px 0;
+    }
+    &__description {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    &__feedback {
+      display: flex;
+      width: 60%;
+      max-width: 130px;
+      justify-content: space-between;
+      margin: .5rem 0;
+    }
+    &__feedback img {
+      margin-right: .5rem;
+    }
+  }
+  &-rating,
+  &-reviews {
+    display: flex;
+    align-items: center;
+  }
+  &-button {
+    border: 1px solid #1A1F24;
+    border-radius: 8px;
+    width: 100%;
+    padding: 10px 0;
+    color: $main;
+    font-weight: 700;
+    transition: all ease .3s;
+    margin: .5rem 0;
+    &__add {
+      &:hover {
+        background: $red;
+        color: $white;
+        transition: all ease .3s;
+      }
+      &:active {
+        background: $main;
+        color: $white;
+        transition: all ease .3s;
+      }
+    }
+    &__search {
+      &:hover {
+        background: $main;
+        color: $white;
+        transition: all ease .3s;
+      }
+      &:active {
+        background: $main;
+        color: $white;
+        transition: all ease .3s;
+      }
+    }
+  }
+
+  &-note {
+    color: $green;
+  }
+  &-tooltip {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 8px;
+    background-color: $white;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    font-size: 12px;
+    text-align: center;
+  }
+  &-tooltip.active {
+    display: block;
+    transition: all ease .3s;
+  }
+}
+
+.price {
+  &_new {
+    font-weight: 700;
+    color:$price;
+  }
+  &_old {
+    position: relative;
+    color: $description-text;
+    &:before {
+      content: "";
+      border-bottom: 1px solid $description-text;
+      position: absolute;
+      width: 100%;
+      height: 50%;
+      transform: rotate(348deg);
+    }
+  }
+}
